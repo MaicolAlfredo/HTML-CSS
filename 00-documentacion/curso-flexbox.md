@@ -118,6 +118,7 @@ li {
 - [flex-flow](#flex-flow)
 - [align-items](#align-items)
 - [Cómo centrar un div](#cómo-centrar-un-div)
+- [align-content](#align-content)
 
 Para continuar nos vamos a nuestro css y voy a estar poniendo otra vez la etiqueta de (`<ul>`) porque no quiero mezclarla con los colores los espacios en este ul y los Li que vamos a ver a continuación vamos a estar hablando puramente de flexbox vamos a comenzar con todas las propiedades que le podemos asignar al padre y que hacen estas y luego vamos a pasar a los hijos.
 
@@ -142,7 +143,7 @@ Ahora, a simple vista parece que no cambió nada, pero si te fijas bien, "menú 
 
 Algo muy importante a tener en cuenta con los ejes es que el **eje cruzado** siempre va a ser **perpendicular al eje principal**. Es decir, si con flex-direction rotamos el eje principal, el eje cruzado también se va a rotar. Voy a borrar esta línea porque quiero que se mantenga en forma de row, es decir, horizontalmente y en forma de fila.
 
-### justify-content
+### **justify-content**
 
 Quiero comenzar a hablar un poco sobre el **espacio disponible**. La propiedad que vamos a utilizar para distribuir este espacio es `justify-content`. Esta propiedad se rige por el **eje principal**, sin importar si está en posición horizontal o vertical, y su función es distribuir el espacio disponible, siempre guiándose por ese eje principal.
 El valor por defecto de `justify-content` es flex-start (`justify-content: flex-start;`). Como puedes ver, no ocurre ningún cambio notable. Sin embargo, si quisiéramos mover ese espacio disponible al inicio y los elementos al final, usamos flex-end (`justify-content: flex-end;`).
@@ -214,7 +215,7 @@ ul {
 }
 ```
 
-### flex-wrap
+### **flex-wrap**
 
 Seguramente te estarás preguntando: **¿Qué pasa cuando tengo demasiados elementos en la misma línea?** Para demostrarlo, vamos a duplicar en nuestro HTML varias veces el "menú 2", porque fue el elegido.
 
@@ -281,7 +282,7 @@ ul {
 }
 ```
 
-### align-items
+### **align-items**
 
 ¿Si tenemos una propiedad para mover los elementos en el eje principal, tendremos otra para moverlos en el eje cruzado? ¡Pues sí! Estamos hablando de `align-items`, o "alinear elementos". Por defecto, el valor de esta propiedad es stretch (`align-items: stretch;`), lo que hace que los elementos se estiren para ocupar todo el espacio disponible en el eje cruzado.
 
@@ -351,5 +352,141 @@ ul {
   align-items: center;
 }
 ```
+
+Vamos a borrar un segundito `justify-content` y vamos a ver el último de los valores, que sería `align-items: baseline`. Tal parece que no hizo nada, pero esta propiedad a lo que se está refiriendo es que la línea de la fuente, es decir, la línea base de la fuente, esté alineada. Para visualizarlo mejor, vamos a decirle al segundo `<li>` con `nth-child`, le decimos el número dos, `li:nth-child(2)`, vamos a decirle que el `font-size` va a ser aproximadamente dos rem, `font-size: 2rem;`. Como notan, los elementos se acomodan para que la fuente, es decir, la base de la fuente, esté alineada.
+
+```css
+li:nth-child(2) {
+  font-size: 2 rem;
+}
+
+ul {
+  display: flex;
+  align-items: baseline;
+}
+```
+
+Lo otro es que, si tuviésemos más texto en uno de los elementos, por ejemplo, vamos a ir al mismo 'menú dos' y vamos a decirle que va a tener un Loren de 10 para agregar 10 palabras medio random.
+
+`index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de Flexbox</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">Menú 1</a></li>
+        <li>
+          <a href="#"
+            >Menú 2Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod.</a
+          >
+        </li>
+        <li><a href="#">Menú 3</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
+```
+
+Ahora, en el CSS, vamos a decirle que en vez de `baseline` va a ser `last baseline`. `align-items: last baseline`. Esto se está refiriendo a la misma línea de la fuente, pero en este caso dice: "alinea las últimas líneas de los elementos". Y como rompimos toda nuestra interfaz, vamos a borrar por ahora esto de la demostración. Y también vamos a echar para atrás el texto del menú 2.
+
+```css
+li:nth-child(2) {
+  font-size: 2 rem;
+}
+
+ul {
+  display: flex;
+  align-items: last baseline;
+}
+```
+
+### **align-content**
+
+La próxima propiedad que vamos a ver va a ser muy parecida a `justify-content`, incluso va a tener prácticamente los mismos valores que `justify-content`. Simplemente que esta la vamos a aplicar una vez que nuestros elementos no entren en el 100% de la pantalla y le digamos de alguna manera `flex-wrap: wrap;` o `wrap-reverse`, para que acomode todos estos elementos en el 100% de su padre. Vamos a utilizar `align-content` para distribuir el espacio residual entre los elementos. Vamos a ver un ejemplo: si agregamos, como hace un momento, varios elementos de 'menú 2', como ven, lo que pasaba ahorita, no entran todos en el 100%.
+
+`index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso de Flexbox</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">Menú 1</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 2</a></li>
+        <li><a href="#">Menú 3</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
+```
+
+Acá vamos a decirle `flex-wrap: wrap;` y, como el padre tiene el alto justo para contener a todos los elementos, vamos a darle un poquitico más de alto para que se note bien esto. Vamos a decirle a la `ul`, por ejemplo, `15rem`. Venimos al final para seguir trabajando con nuestras propiedades de flexbox y le decimos `align-content`. Podemos comenzar con `flex-start`: `align-content: flex-start;`. Se fijan, todos los elementos se van al inicio. Luego podemos ver `flex-end`: `align-content: flex-end;`. Todos los elementos se van al final. Luego tenemos `center`: `align-content: center;`. Todos los elementos se centran y seguro estarán pensando: "eso es lo que acabamos de ver con `align-items`", es decir, cómo alinear elementos en el eje cruzado. Pero no, existe una pequeña diferencia de cómo distribuimos el espacio residual entre esas filas de elementos que hemos puesto uno debajo del otro. Y lo vamos a notar con los valores de `space-between`: `align-content: space-between;`. Como vimos con `justify-content`, es decir, ahora el espacio residual se pone entre las filas de elementos. Luego tenemos, de igual manera, `space-around`: `align-content: space-around;`. Se ponen espacios iguales, pero delante y detrás de cada elemento, por eso el primero y el último va a tener menos espacio que entre los elementos. Y de igual manera, vamos a tener `space-evenly`: `align-content: space-evenly;`, donde el espacio residual va a estar repartido igualmente entre todas las filas de elementos. Y el valor por defecto de este sería `stretch`: `align-content: stretch;`, donde todos los elementos van a tener un alto acorde para no tener un espacio residual en el padre.
+
+```css
+body {
+  background-color: black;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 15rem;
+}
+
+li {
+  background-color: chocolate;
+  color: white;
+  border: dashed black;
+  padding: 0.3rem 0.7rem;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch; /* dafault */
+  /* align-items: last baseline; */
+  /* align-content: flex-start; */
+  /* align-content: flex-end; */
+  /* align-content: center; */
+  /* align-content: space-between; */
+  /* align-content: space-around; */
+  /* align-content: space-evenly; */
+}
+```
+
 
 [Indice](#curso-css-flexbox)
