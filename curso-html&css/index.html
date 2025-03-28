@@ -22,5 +22,117 @@
     <!-- Esto es un comentatario -->
     <p>Hola, escribiendo mi primer documento HTML</p>
     <p>Aprendiendo sobre Diseño Web</p>
+     <!-- 
+  En HTML, se recomienda seguir la práctica de usar solo una etiqueta <h1> por página. 
+  El elemento <h1> representa el encabezado de nivel más alto y es interpretado por los motores de búsqueda como el título principal o el tema central del contenido de la página.
+  Utilizar múltiples etiquetas <h1> puede diluir la estructura semántica del documento, confundir a los motores de búsqueda sobre el tema principal de la página y afectar negativamente el SEO (Search Engine Optimization).
+
+  Si necesitas más encabezados dentro de la página, usa las etiquetas <h2>, <h3>, <h4>, <h5> o <h6>, que representan encabezados de niveles inferiores y ayudan a estructurar el contenido de forma 
+  jerárquica y lógica. Los h2 serian como subtitulos del h1.
+  Los h3 serian subtitulos del h2 y así sucesivamente.
+  Esta es una buena practica para la accesibilidad.
+-->
+    <h1>Encabezado de nivel 1</h1>
+    <h2>Encabezado de nivel 2</h2>
+    <h3>Encabezado de nivel 3</h3>
+    <h4>Encabezado de nivel 4</h4>
+    <h5>Encabezado de nivel 5</h5>
+    <h6>Encabezado de nivel 6</h6>
+    <hr />
+    <!-- Etiquetas de texto basicas -->
+    <h2>Etiquetas de texto basicas</h2>
+    <p>un párrafo</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis saepe rerum
+      nostrum nemo accusantium odio placeat sunt alias consequuntur illo hic
+      commodi debitis blanditiis laudantium, delectus sapiente, porro est
+      temporibus!
+    </p>
+    <p>
+      Palabras en: <br />
+      <b>negrita</b>,
+      <br />
+      <i>itálica</i>,
+      <br />
+      <u>subrayado</u>,
+      <br />
+      e=mc<sup>2</sup>,
+      <br />
+      H<sub>2</sub>O,
+      <br />
+      <mark>marcatexto</mark>,
+      <br />
+      <small>letras pequeñas</small>
+    </p>
+    <hr />
+    <!-- Etiquetas de texto semánticas -->
+    <h2>Etiquetas de texto semánticas</h2>
+    <p>
+      <strong>Este texto es importante</strong>,
+      <br />
+      <em>Este texto hace énfasis</em>
+    </p>
+    <blockquote>Yo sólo sé, que no se nada</blockquote>
+    <cite>Sócrates</cite>
+    <hr />
+    <!-- Etiquetas de saltos -->
+    <h2>Etiquetas de saltos</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+      Quis, officiis itaque ipsam labore voluptate architecto rem libero, nemo
+      reiciendis, assumenda eos maxime ab voluptatum eum animi? Quo expedita
+      optio cupiditate.
+    </p>
+    <!-- 
+  <hr>: Representa una "separación temática" a nivel de párrafo. Indica un cambio en el tema o asunto tratado en el documento. Aunque visualmente se muestra como una línea horizontal, su función principal es semántica, no de diseño.
+-->
+    <hr />
+    <!-- Etiquetas de formateo -->
+    <h2>Etiquetas de formateo</h2>
+    <p>Tareas por hacer</p>
+    <pre>
+    -HTML
+      - terminar de grabar las secciones de este curso
+      - editar en un solo video
+    -CSS
+      - Comenzar a grabar secciones CSS
+      - Editar en un solo Video
+    </pre>
+    <p>
+      <code>Este texto esta en formato de codigo</code>
+    </p>
+
+    <div>
+      <pre>
+        <code>
+          import React from "react"
+          import Title from "./Title"
+
+          function App{
+            return 
+            &lt;div&gt;
+              &lt;Title&gt;Hola Mundo&lt;/Title&gt;
+            &lt;/div&gt;
+          }
+        </code>
+      </pre>
+    </div>
+    <hr />
+    <!-- Etiquetas semánticas estructurales -->
+    <h2>Etiquetas semánticas estructurales</h2>
+    <div>Es una etiqueta contenedora que no tiene semántica</div>
+    <header>header - Cabecera de un sitio web o de una sección</header>
+    <main>
+      main - Define la sección principal del documento, sólo puede existir una
+      etiqueta main por documento
+    </main>
+    <footer>footer - Pié de página de un sitio web o de una sección</footer>
+    <nav>nav - Representa una navegación</nav>
+    <article>
+      article - Representa una sección autocontenido(que por sí sola se explica)
+    </article>
+    <aside>aside - Representa contenido complementario o secundario</aside>
+    <section>section - Representa una sección de contenido</section>
+    <address>address - Representa la dirección de un sitio web</address>
   </body>
 </html>
